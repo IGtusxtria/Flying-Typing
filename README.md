@@ -2,10 +2,8 @@
 # Flying Typing
 
 ## Play Game
-
 Mainkan Flying Typing secara langsung:
-
-[Klik di sini untuk bermain](https://igtusxtria.github.io/Flying-Typing/)git add README.md
+[Klik di sini untuk bermain](https://igtusxtria.github.io/Flying-Typing/)
 
 ## Tentang Game
 Flying Typing adalah game edukasi berbasis web yang dirancang untuk membantu pemain meningkatkan kemampuan mengetik melalui permainan interaktif.
