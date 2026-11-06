@@ -8,7 +8,7 @@ Mainkan Flying Typing secara langsung:
 ## Tentang Game
 Flying Typing adalah game edukasi berbasis web yang dirancang untuk membantu pemain meningkatkan kemampuan mengetik melalui permainan interaktif.
 
-Dalam game ini, pemain harus mengetik kata-kata yang muncul untuk mendapatkan skor dan mempertahankan terbangnya buurng dalam permainan, dan juga setiap kata yang direset akan diberi waktu 4 detik, waktu itu berbentuk burung yang terbang merendah kebawah layar.
+Dalam game ini, pemain harus mengetik kata-kata yang muncul untuk mendapatkan skor dan mempertahankan terbangnya burung dalam permainan, dan juga setiap kata yang direset akan diberi waktu 4 detik, waktu itu berbentuk burung yang terbang merendah kebawah layar.
 
 ## Tujuan Pembelajaran
 - Melatih kecepatan mengetik.
@@ -23,6 +23,8 @@ Dalam game ini, pemain harus mengetik kata-kata yang muncul untuk mendapatkan sk
 - Batas waktu untuk setiap kata.
 - Statistik kecepatan dan akurasi mengetik.
 - Tampilan permainan interaktif.
+- Nyawa berkurang ketika kata salah dan ketika burung jatuh
+- setiap tingkat kesulitan berisi timer yang berbeda beda
 
 ## Teknologi yang Digunakan
 - HTML
