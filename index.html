@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FLYING TYPING</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <div class="brand">
+
+<h1 class="game-title">
+  FLYING TYPING
+  <span class="creator">BY SATRIA</span>
+</h1>
+      </div>
+      <div class="top-label">Typing speed challenge</div>
+    </header>
+
+    <section id="menuScreen" class="screen menu-screen">
+      <div class="hero">
+        <div class="hero-bird">🐦</div>
+        <p class="eyebrow">TRAIN YOUR FINGERS</p>
+        <h1>Fly with your<br><span>typing speed.</span></h1>
+        <p class="hero-description">
+          Ketik kata secepat mungkin, jaga burung tetap terbang,
+          dan raih skor tertinggi!
+        </p>
+      </div>
+
+      <div class="mode-panel">
+        <h2>Pilih tingkat kesulitan</h2>
+        <div class="mode-list">
+          <button class="mode-card selected" data-mode="easy">
+            <span class="mode-symbol">🌱</span>
+            <span class="mode-name">Easy</span>
+            <small>Kata pendek · 30 detik</small>
+          </button>
+          <button class="mode-card" data-mode="normal">
+            <span class="mode-symbol">⚡</span>
+            <span class="mode-name">Normal</span>
+            <small>Kata sedang · 1 menit</small>
+          </button>
+          <button class="mode-card" data-mode="hard">
+            <span class="mode-symbol">🔥</span>
+            <span class="mode-name">Hard</span>
+            <small>Kata panjang · 2 menit</small>
+          </button>
+        </div>
+        <button id="startButton" class="primary-button">Mulai permainan <span>→</span></button>
+      </div>
+    </section>
+
+    <section id="gameScreen" class="screen game-screen hidden">
+      <div class="game-heading">
+        <div>
+          <p class="eyebrow">LET'S FLY</p>
+          <h2>Keep the bird alive!</h2>
+        </div>
+        <button id="quitButton" class="quiet-button">Keluar</button>
+      </div>
+
+      <div class="stats-bar">
+        <div class="stat">
+          <small>WAKTU</small>
+          <strong id="timeValue">30</strong>
+        </div>
+        <div class="stat">
+          <small>SKOR</small>
+          <strong id="scoreValue">0</strong>
+        </div>
+        <div class="stat">
+          <small>WPM</small>
+          <strong id="wpmValue">0</strong>
+        </div>
+        <div class="stat lives-stat">
+          <small>NYAWA</small>
+          <strong id="livesValue">❤️❤️❤️❤️❤️</strong>
+        </div>
+      </div>
+
+      <div class="game-arena" id="gameArena">
+        <div class="sun"></div>
+        <div class="cloud cloud-one"></div>
+        <div class="cloud cloud-two"></div>
+        <div class="cloud cloud-three"></div>
+        <div class="cloud cloud-four"></div>
+        <div class="far-hills"></div>
+        <div class="near-hills"></div>
+
+        <div class="arena-label">BIRD FLIGHT ZONE</div>
+        <div id="bird" class="bird bird-raven">
+          <svg viewBox="0 0 180 120" class="bird-svg" aria-label="Burung sedang terbang">
+            <defs>
+              <linearGradient id="bodyGradient" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#596b7c"/>
+                <stop offset="100%" stop-color="#263747"/>
+              </linearGradient>
+              <linearGradient id="wingGradient" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#71889b"/>
+                <stop offset="100%" stop-color="#263747"/>
+              </linearGradient>
+            </defs>
+
+            <!-- Ekor -->
+            <g class="tail">
+              <path d="M48 67 Q22 55 7 44 Q25 72 10 87 Q34 82 54 77Z" class="bird-tail"/>
+              <path d="M43 70 Q22 65 13 53" class="feather-line"/>
+            </g>
+
+            <!-- Sayap belakang -->
+            <g class="wing-back">
+              <path d="M77 55 Q48 18 28 12 Q40 36 31 48 Q51 42 63 67Z" class="wing-shape"/>
+            </g>
+
+            <!-- Badan -->
+            <ellipse cx="87" cy="70" rx="43" ry="23" class="bird-body"/>
+            <path d="M67 79 Q89 91 115 76 Q100 96 75 89Z" class="bird-belly"/>
+
+            <!-- Leher dan kepala -->
+            <path d="M107 67 Q111 44 130 41 L140 53 Q123 58 124 74Z" class="bird-neck"/>
+            <circle cx="135" cy="43" r="17" class="bird-head"/>
+            <path d="M148 42 L174 48 L149 54Z" class="bird-beak"/>
+
+            <!-- Jambul -->
+            <path d="M126 29 Q119 12 131 17 Q137 9 140 27" class="bird-crest"/>
+
+            <!-- Sayap depan -->
+            <g class="wing-front">
+              <path d="M79 60 Q66 27 42 20 Q57 44 48 57 Q61 49 70 76Z" class="wing-shape"/>
+              <path d="M71 58 Q57 39 48 32 M69 64 Q56 52 47 49" class="feather-detail"/>
+            </g>
+
+            <!-- Mata -->
+            <g class="normal-eyes">
+              <circle cx="140" cy="40" r="3.2" class="eye"/>
+              <circle cx="141" cy="39" r="1" class="eye-shine"/>
+            </g>
+            <g class="dead-eyes">
+              <path d="M135 35 L145 45 M145 35 L135 45"/>
+              <path d="M148 35 L158 45 M158 35 L148 45"/>
+            </g>
+
+            <!-- Kaki -->
+            <g class="bird-legs">
+              <path d="M82 88 L78 99 M99 88 L97 99" class="leg"/>
+              <path d="M73 99 L82 99 M92 99 L102 99" class="claw"/>
+            </g>
+          </svg>
+        </div>
+
+        <div class="ground"></div>
+        <div class="ground-line"></div>
+        <div class="arena-bottom-label">KEEP TYPING TO KEEP FLYING</div>
+      </div>
+
+      <div class="typing-panel">
+        <div class="word-area">
+          <p class="typing-hint">KETIK KATA INI, LALU TEKAN SPACE</p>
+          <div id="targetWord" class="target-word">burung</div>
+        </div>
+        <input id="typingInput" type="text" autocomplete="off" autocapitalize="off"
+          spellcheck="false" placeholder="Ketik di sini..." aria-label="Ketik kata">
+        <p class="input-help">Huruf salah berwarna merah. Gunakan Backspace untuk memperbaikinya.</p>
+      </div>
+    </section>
+
+    <section id="resultScreen" class="screen result-screen hidden">
+      <div class="result-icon">🏆</div>
+      <p class="eyebrow">FLIGHT COMPLETED</p>
+      <h1>Permainan selesai!</h1>
+      <p class="result-subtitle">Ini hasil latihan mengetikmu.</p>
+
+      <div class="result-grid">
+        <div class="result-card"><small>KATA BENAR</small><strong id="finalScore">0</strong></div>
+        <div class="result-card"><small>KESALAHAN</small><strong id="finalErrors">0</strong></div>
+        <div class="result-card"><small>AKURASI</small><strong id="finalAccuracy">0%</strong></div>
+        <div class="result-card"><small>WPM</small><strong id="finalWpm">0</strong></div>
+      </div>
+
+      <div class="result-actions">
+        <button id="playAgainButton" class="primary-button">Main lagi ↻</button>
+        <button id="menuButton" class="secondary-button">Menu utama</button>
+      </div>
+    </section>
+
+    <footer class="footer">FLYING TYPING <span>·</span> Practice makes progress.</footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
